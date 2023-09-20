@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+            font-family: "Times New Roman";
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+    }
+    header {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+    }
+    .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 2rem;
+    }
+    .grid-container {
+            display: grid;
+            grid-gap: 50px;
+            grid-template-columns: repeat(3,1fr);
+    }
+    .grid-item{
+            padding: auto;
+    }
+   .button{
+            padding: 10px 30px;
+            size: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #080808;
+            border-radius: 12px;
+    }
+    .button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Event in HTML</h1>
+    </header>
+    <div class="container">
+        <h2>Events</h2>
+        <p id="para">We can add many events in html, some are shown below.</p>
+        <div class="grid-container">
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.color= "Red" '>Red</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.color= "Blue" '>Blue</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.color= "Green" '>Green</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.fontSize="10px"'>10</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.fontSize="20px"'>20</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.fontSize="30px"'>30</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.fontFamily="Arial"'>Arial</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.fontFamily="Papyrus"'>Papyrus</button></div>
+            <div class="grid-item"><button class="button" onclick='document.getElementById("para").style.fontFamily="Comic Sans MS" '>Comic Sans MS</button></div>
+          </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Red. All rights reserved.</p>
+    </footer>
+</body>   
+</html>

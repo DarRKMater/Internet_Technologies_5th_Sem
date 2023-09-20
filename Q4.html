@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Multiplication Tables</title>
+    <style>
+        body {
+            font-family: "Times New Roman";
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 2rem;
+        }
+        .table-row {
+            font-size: 10px;
+            text-align: center;
+            transition: font-size 1s, color 1s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Multiplication Table</h1>
+    </header>
+    <div class="container">
+    <table>
+        <tbody id="multiplicationTable">
+            <!-- Table rows will be added here dynamically -->
+        </tbody>
+    </table>
+    </div>
+    <script>
+        let currentMultiplier = 2;
+        let intervalId;
+
+        function createTableRow(multiplier) {
+            const tableRow = document.createElement("tr");
+            tableRow.classList.add("table-row");
+
+            for (let i = 1; i <= 10; i++) {
+                const result = multiplier * i;
+                const tableData = document.createElement("td");
+                tableData.textContent = ` ${result} `;
+                tableRow.appendChild(tableData);
+            }
+
+            document.getElementById("multiplicationTable").appendChild(tableRow);
+        }
+
+        function changeRowStyle() {
+            const tableRows = document.querySelectorAll(".table-row");
+            tableRows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.style.fontSize = `${16 + index * 4}px`;
+                    row.style.color = getRandomColor();
+                }, index * 1000);
+            });
+        }
+
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function showNextRow() {
+            createTableRow(currentMultiplier);
+            currentMultiplier++;
+
+            if (currentMultiplier > 10) {
+                clearInterval(intervalId);
+            }
+        }
+
+        intervalId = setInterval(() => {
+            showNextRow();
+            changeRowStyle();
+        }, 5000);
+    </script>
+
+</body>
+</html>
